@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gozal Tea - The Most Luxurious Tea Brand</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <!-- Ant Design CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/antd@5.15.7/dist/antd.min.css"/>
+  <style>
+    body, html {
+      margin: 0; padding: 0;
+      font-family: 'Playfair Display', serif;
+      background: #faf5ee;
+      color: #3e2c18;
+      overflow-x: hidden;
+    }
+    #three-bg {
+      position: fixed;
+      top:0; left:0; width: 100vw; height: 100vh;
+      z-index: 0;
+    }
+    .main-content {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .luxury-headline {
+      font-size: 3rem;
+      letter-spacing: 0.1em;
+      color: #9e7c42;
+      text-shadow: 0 4px 24px #fff8e1;
+      margin: 4rem 0 1rem 0;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      background: linear-gradient(90deg, #e3c77b 20%, #fffbe9 60%, #e9b857 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .luxury-cta {
+      margin: 2rem 0;
+    }
+    .ant-btn {
+      font-size: 1.3rem;
+      padding: 1rem 2.4rem;
+      border-radius: 30px;
+      background: linear-gradient(90deg, #bfa04a, #fffbe8 70%);
+      color: #3e2c18;
+      box-shadow: 0 4px 24px #fffbe1;
+      border: none;
+      font-weight: bold;
+      transition: background 0.4s;
+    }
+    .ant-btn:hover {
+      background: linear-gradient(90deg, #fffbe8, #bfa04a 80%);
+    }
+    .product-showcase {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 3rem;
+    }
+    .ant-card {
+      min-width: 300px;
+      max-width: 330px;
+      border-radius: 20px;
+      box-shadow: 0 4px 24px #eee1c5;
+      background: #fffbe9;
+    }
+    .ant-card img {
+      border-radius: 15px 15px 0 0;
+      object-fit: cover;
+      width: 100%;
+      height: 200px;
+    }
+    /* Responsive */
+    @media (max-width: 800px) {
+      .luxury-headline { font-size: 2rem; }
+      .product-showcase { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Three.js Background -->
+  <canvas id="three-bg"></canvas>
+
+  <div class="main-content">
+    <h1 class="luxury-headline" id="headline">Gozal Tea — The Jewel of UAE</h1>
+    <div class="luxury-cta">
+      <button class="ant-btn ant-btn-lg">Explore Our Signature Blends</button>
+    </div>
+    <div class="product-showcase">
+      <div class="ant-card">
+        <img src="tea-saffron.jpg" alt="Saffron Earl Grey"/>
+        <div class="ant-card-body">
+          <h3>Saffron Earl Grey</h3>
+          <p>Royal black tea with Persian saffron & bergamot.</p>
+        </div>
+      </div>
+      <div class="ant-card">
+        <img src="tea-date-chai.jpg" alt="Date & Cardamom Chai"/>
+        <div class="ant-card-body">
+          <h3>Date & Cardamom Chai</h3>
+          <p>Chai spices, sweet Emirati dates, and tradition.</p>
+        </div>
+      </div>
+      <div class="ant-card">
+        <img src="tea-rose-oolong.jpg" alt="Rose Oolong"/>
+        <div class="ant-card-body">
+          <h3>Rose Oolong</h3>
+          <p>Floral oolong with hand-picked rose petals.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Anime.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <!-- Three.js -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.min.js"></script>
+  <!-- tWiler.js (using typed.js as a luxury animated headline as a fallback) -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <!-- Ant Design JS (for components, optional if you want JS features) -->
+  <script src="https://cdn.jsdelivr.net/npm/antd@5.15.7/dist/antd.min.js"></script>
+  <script>
+    // Animate headline with Typed.js (luxury text animation)
+    new Typed("#headline", {
+      strings: [
+        "Gozal Tea — The Jewel of UAE^1000",
+        "Luxury in Every Sip^1000",
+        "Tradition. Elegance. Gozal Tea."
+      ],
+      typeSpeed: 55,
+      backSpeed: 30,
+      loop: true,
+      showCursor: false
+    });
+
+    // Animate products in with Anime.js
+    anime({
+      targets: '.ant-card',
+      translateY: [100, 0],
+      opacity: [0, 1],
+      delay: anime.stagger(200, {start: 1200}),
+      duration: 1200,
+      easing: 'easeOutElastic(1, .8)'
+    });
+
+    // Three.js 3D floating tea leaves
+    let scene = new THREE.Scene();
+    let camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+    let renderer = new THREE.WebGLRenderer({canvas: document.getElementById('three-bg'), alpha: true});
+    renderer.setClearColor(0x000000, 0);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+    // Add lights
+    let light = new THREE.PointLight(0xffeeb0, 1.6, 100);
+    light.position.set(0, 10, 10);
+    scene.add(light);
+    scene.add(new THREE.AmbientLight(0xffffff, 0.35));
+
+    // Floating tea leaves (gold glowing spheres as stand-in)
+    let leaves = [];
+    let leafGeometry = new THREE.SphereGeometry(0.22, 16, 16);
+    let leafMaterial = new THREE.MeshStandardMaterial({ color: 0xe3c77b, emissive: 0xf6e9b0, metalness: 0.85, roughness: 0.35 });
+    for(let i=0; i<18; i++) {
+      let mesh = new THREE.Mesh(leafGeometry, leafMaterial);
+      mesh.position.set(
+        (Math.random() - 0.5) * 14,
+        (Math.random() - 0.5) * 7,
+        -5 + Math.random() * 6
+      );
+      scene.add(mesh);
+      leaves.push({mesh, speed: 0.002 + Math.random()*0.002});
+    }
+
+    camera.position.z = 8;
+
+    // Responsive resize
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth/window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    // Animate loop
+    function animate() {
+      leaves.forEach((leaf, idx) => {
+        leaf.mesh.position.y += Math.sin(Date.now()*leaf.speed + idx) * 0.009;
+        leaf.mesh.position.x += Math.cos(Date.now()*leaf.speed + idx) * 0.004;
+        leaf.mesh.rotation.y += 0.01;
+        leaf.mesh.rotation.z += 0.02;
+      });
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    // Animate CTA button with Anime.js
+    anime({
+      targets: '.ant-btn',
+      scale: [0.85, 1],
+      opacity: [0, 1],
+      delay: 800,
+      duration: 1000,
+      easing: 'easeOutExpo'
+    });
+  </script>
+</body>
+</html>
