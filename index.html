@@ -1,215 +1,444 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Gozal Tea - The Most Luxurious Tea Brand</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <!-- Ant Design CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/antd@5.15.7/dist/antd.min.css"/>
-  <style>
-    body, html {
-      margin: 0; padding: 0;
-      font-family: 'Playfair Display', serif;
-      background: #faf5ee;
-      color: #3e2c18;
-      overflow-x: hidden;
-    }
-    #three-bg {
-      position: fixed;
-      top:0; left:0; width: 100vw; height: 100vh;
-      z-index: 0;
-    }
-    .main-content {
-      position: relative;
-      z-index: 1;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-    .luxury-headline {
-      font-size: 3rem;
-      letter-spacing: 0.1em;
-      color: #9e7c42;
-      text-shadow: 0 4px 24px #fff8e1;
-      margin: 4rem 0 1rem 0;
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      background: linear-gradient(90deg, #e3c77b 20%, #fffbe9 60%, #e9b857 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .luxury-cta {
-      margin: 2rem 0;
-    }
-    .ant-btn {
-      font-size: 1.3rem;
-      padding: 1rem 2.4rem;
-      border-radius: 30px;
-      background: linear-gradient(90deg, #bfa04a, #fffbe8 70%);
-      color: #3e2c18;
-      box-shadow: 0 4px 24px #fffbe1;
-      border: none;
-      font-weight: bold;
-      transition: background 0.4s;
-    }
-    .ant-btn:hover {
-      background: linear-gradient(90deg, #fffbe8, #bfa04a 80%);
-    }
-    .product-showcase {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 3rem;
-    }
-    .ant-card {
-      min-width: 300px;
-      max-width: 330px;
-      border-radius: 20px;
-      box-shadow: 0 4px 24px #eee1c5;
-      background: #fffbe9;
-    }
-    .ant-card img {
-      border-radius: 15px 15px 0 0;
-      object-fit: cover;
-      width: 100%;
-      height: 200px;
-    }
-    /* Responsive */
-    @media (max-width: 800px) {
-      .luxury-headline { font-size: 2rem; }
-      .product-showcase { flex-direction: column; align-items: center; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gozal Tea - UAE's Most Luxurious Tea Brand</title>
+    <meta name="description" content="Gozal Tea offers luxury tea blends inspired by Emirati heritage. Explore our exquisite collection and discover the art of fine tea.">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900|Roboto:400,500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4a3c2f;
+            --gold: #e3c77b;
+            --cream: #fffbe9;
+            --dark: #3e2c18;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            color: var(--dark);
+            background: var(--cream);
+            line-height: 1.7;
+        }
+        header {
+            background: var(--primary);
+            padding: 1.2rem 0;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 1.05rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--gold); }
+
+        /* Hero */
+        .hero {
+            background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            justify-content: flex-start;
+        }
+        .hero-overlay {
+            position: absolute; left:0; top:0; width:100%; height:100%;
+            background: rgba(34, 27, 18, 0.60);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin-left: 7vw;
+            color: #fffbe9;
+            text-shadow: 0 4px 24px #4a3c2f;
+        }
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            margin-bottom: 1.3rem;
+            font-weight: 900;
+            letter-spacing: 1.8px;
+        }
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2.2rem;
+        }
+        .btn {
+            background: var(--gold);
+            color: var(--primary);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            box-shadow: 0 4px 24px #e3c77b60;
+            text-decoration: none;
+            transition: background 0.3s, color 0.3s;
+            display: inline-block;
+        }
+        .btn:hover {
+            background: #f4e0a7;
+            color: var(--primary);
+        }
+
+        /* Section Containers */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3.5rem 1.5rem 2.5rem 1.5rem;
+        }
+        section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.3rem;
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        /* About */
+        .about-content {
+            max-width: 850px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.18rem;
+        }
+        .about-img {
+            display: block;
+            margin: 2rem auto 1.2rem auto;
+            width: 320px;
+            border-radius: 18px;
+            box-shadow: 0 4px 40px #e3c77b30;
+        }
+
+        /* Why Gozal */
+        .why-gozal {
+            background: linear-gradient(100deg, #fffbe9 60%, #e3c77b20 100%);
+            border-radius: 18px;
+            box-shadow: 0 4px 45px #e3c77b13;
+            margin: 3rem 0;
+            padding: 2.2rem 2rem 2rem 2rem;
+        }
+        .why-points {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+        .why-point {
+            flex: 1 1 220px;
+            min-width: 200px;
+            max-width: 320px;
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 2px 14px #d3c07a17;
+            padding: 1.3rem 1.1rem;
+            margin-bottom: 1rem;
+        }
+        .why-point h4 {
+            color: var(--primary);
+            font-size: 1.15rem;
+            margin-bottom: 0.4rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Products */
+        .product-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+        .product-card {
+            background: #fff;
+            border-radius: 19px;
+            box-shadow: 0 4px 32px #e3c77b25;
+            padding: 1.4rem 1.3rem 2rem 1.3rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 440px;
+        }
+        .product-card img {
+            width: 100%;
+            max-width: 250px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 14px;
+            box-shadow: 0 2px 18px #e3c77b10;
+            margin-bottom: 1.1rem;
+        }
+        .product-card h3 {
+            font-size: 1.3rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            margin-bottom: 0.7rem;
+            font-weight: 700;
+        }
+        .product-card p {
+            font-size: 1.05rem;
+            color: #705d3c;
+            margin-bottom: 0.5rem;
+        }
+        .product-badge {
+            background: var(--gold);
+            color: var(--primary);
+            font-size: 0.94rem;
+            padding: 0.3rem 1.1rem;
+            border-radius: 12px;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            display: inline-block;
+            letter-spacing: 1px;
+        }
+
+        /* Contact */
+        .contact-section {
+            background: #fffbe9;
+            border-radius: 18px;
+            box-shadow: 0 4px 30px #e3c77b20;
+            margin: 2rem 0 3rem 0;
+            padding: 2rem 1.5rem 2.3rem 1.5rem;
+        }
+        .contact-form {
+            max-width: 480px;
+            margin: 0 auto;
+        }
+        .contact-form label {
+            display: block;
+            margin-bottom: 0.4rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1.4rem;
+            border: 1px solid #e3c77b;
+            border-radius: 7px;
+            background: #fcf8ef;
+            font-size: 1rem;
+            font-family: 'Roboto', Arial, sans-serif;
+        }
+        .contact-form button {
+            width: 100%;
+            background: var(--primary);
+            color: #fff;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 22px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: background 0.3s;
+            cursor: pointer;
+            margin-top: 0.6rem;
+        }
+        .contact-form button:hover { background: #3a2f24; }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: #fff;
+            text-align: center;
+            padding: 2rem 1rem 1rem 1rem;
+        }
+        .social-links {
+            margin-bottom: 1rem;
+        }
+        .social-links a {
+            color: var(--gold);
+            margin: 0 1rem;
+            font-size: 1.3rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .social-links a:hover { color: #fffbe9; }
+
+        @media (max-width: 900px) {
+            .hero-content { margin-left: 2vw; }
+            section { padding-left: 3vw; padding-right: 3vw; }
+        }
+        @media (max-width: 700px) {
+            .hero-content h1 { font-size: 2.1rem; }
+            .product-cards { grid-template-columns: 1fr; }
+            .why-points { flex-direction: column; }
+            .about-img { width: 92vw; }
+        }
+        @media (max-width: 500px) {
+            .logo { font-size: 1.3rem; }
+            nav { padding: 0 0.6rem; }
+            .hero { height: 62vw; min-height: 52vw; }
+            .hero-content { margin-left: 3vw; }
+            .about-img { width: 99vw; }
+        }
+    </style>
 </head>
 <body>
-  <!-- Three.js Background -->
-  <canvas id="three-bg"></canvas>
+    <!-- Header/Nav -->
+    <header>
+        <nav>
+            <a href="#" class="logo">Gozal Tea</a>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">Our Story</a>
+                <a href="#why">Why Gozal?</a>
+                <a href="#products">Products</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
 
-  <div class="main-content">
-    <h1 class="luxury-headline" id="headline">Gozal Tea — The Jewel of UAE</h1>
-    <div class="luxury-cta">
-      <button class="ant-btn ant-btn-lg">Explore Our Signature Blends</button>
-    </div>
-    <div class="product-showcase">
-      <div class="ant-card">
-        <img src="tea-saffron.jpg" alt="Saffron Earl Grey"/>
-        <div class="ant-card-body">
-          <h3>Saffron Earl Grey</h3>
-          <p>Royal black tea with Persian saffron & bergamot.</p>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>UAE’s Most Luxurious Tea Experience</h1>
+            <p>Discover the art of fine tea. From the world’s most select gardens—crafted for royal palates in the heart of the Emirates.</p>
+            <a href="#products" class="btn">Shop Our Collection</a>
         </div>
-      </div>
-      <div class="ant-card">
-        <img src="tea-date-chai.jpg" alt="Date & Cardamom Chai"/>
-        <div class="ant-card-body">
-          <h3>Date & Cardamom Chai</h3>
-          <p>Chai spices, sweet Emirati dates, and tradition.</p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>Our Story</h2>
+        <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80" alt="Pouring luxury tea" class="about-img">
+        <div class="about-content">
+            <p>
+                <strong>Gozal Tea</strong> was born from a passion for Emirati heritage and a love for the world’s most exquisite teas. Our founders traveled from the lush highlands of Sri Lanka to the rolling estates of Darjeeling and Yunnan, seeking leaves worthy of royalty. Each blend is a tribute to the UAE’s spirit: bold, refined, and welcoming.<br><br>
+                We don’t just sell tea—we curate an experience. From delicate greens with floral notes to bold black teas infused with local ingredients like saffron and dates, every cup is a celebration of tradition and sophistication. Enjoy the legacy. Taste the luxury.
+            </p>
         </div>
-      </div>
-      <div class="ant-card">
-        <img src="tea-rose-oolong.jpg" alt="Rose Oolong"/>
-        <div class="ant-card-body">
-          <h3>Rose Oolong</h3>
-          <p>Floral oolong with hand-picked rose petals.</p>
+    </section>
+
+    <!-- Why Gozal Section -->
+    <section id="why">
+        <h2>Why Choose Gozal?</h2>
+        <div class="why-gozal">
+            <div class="why-points">
+                <div class="why-point">
+                    <h4>🌱 Handpicked Origin</h4>
+                    <p>Only the finest, ethically sourced leaves from renowned tea gardens make it to your cup.</p>
+                </div>
+                <div class="why-point">
+                    <h4>🧑‍🔬 Masterful Blending</h4>
+                    <p>Our tea masters craft unique blends, fusing Emirati flavors and world-class expertise.</p>
+                </div>
+                <div class="why-point">
+                    <h4>🏆 Award-Winning Quality</h4>
+                    <p>Gozal Tea is recognized across the UAE for excellence in aroma, flavor, and presentation.</p>
+                </div>
+                <div class="why-point">
+                    <h4>✨ Luxurious Presentation</h4>
+                    <p>Indulge in gold-accented packaging, perfect for gifting or elevating your own tea ritual.</p>
+                </div>
+                <div class="why-point">
+                    <h4>🌏 Sustainable Luxury</h4>
+                    <p>We support eco-friendly farming and fair trade, ensuring every sip is guilt-free luxury.</p>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- Anime.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-  <!-- Three.js -->
-  <script src="https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.min.js"></script>
-  <!-- tWiler.js (using typed.js as a luxury animated headline as a fallback) -->
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-  <!-- Ant Design JS (for components, optional if you want JS features) -->
-  <script src="https://cdn.jsdelivr.net/npm/antd@5.15.7/dist/antd.min.js"></script>
-  <script>
-    // Animate headline with Typed.js (luxury text animation)
-    new Typed("#headline", {
-      strings: [
-        "Gozal Tea — The Jewel of UAE^1000",
-        "Luxury in Every Sip^1000",
-        "Tradition. Elegance. Gozal Tea."
-      ],
-      typeSpeed: 55,
-      backSpeed: 30,
-      loop: true,
-      showCursor: false
-    });
+    <!-- Products Section -->
+    <section id="products">
+        <h2>Our Signature Blends</h2>
+        <div class="product-cards">
+            <div class="product-card">
+                <div class="product-badge">Best Seller</div>
+                <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=600&q=80" alt="Saffron Earl Grey">
+                <h3>Saffron Earl Grey</h3>
+                <p>
+                    Black tea with a bold twist of bergamot and rare Persian saffron threads.<br>
+                    <strong>Tasting Notes:</strong> Citrus, saffron, honey.
+                </p>
+                <p><em>Perfect for afternoon tea and special gatherings.</em></p>
+            </div>
+            <div class="product-card">
+                <div class="product-badge">Heritage</div>
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80" alt="Date & Cardamom Chai">
+                <h3>Date & Cardamom Chai</h3>
+                <p>
+                    Spiced Assam chai blended with sun-ripened Emirati dates and green cardamom pods.<br>
+                    <strong>Tasting Notes:</strong> Warm spice, caramel, dried fruit.
+                </p>
+                <p><em>A true taste of the Emirates, honoring tradition.</em></p>
+            </div>
+            <div class="product-card">
+                <div class="product-badge">Limited Edition</div>
+                <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80" alt="Rose Oolong">
+                <h3>Rose Oolong</h3>
+                <p>
+                    Oolong tea lovingly infused with hand-picked rose petals for a floral, romantic cup.<br>
+                    <strong>Tasting Notes:</strong> Floral, creamy, subtle fruit.
+                </p>
+                <p><em>Ideal for quiet moments or sharing with loved ones.</em></p>
+            </div>
+            <div class="product-card">
+                <div class="product-badge">Wellness</div>
+                <img src="https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=crop&w=600&q=80" alt="Jasmine Emerald Green">
+                <h3>Jasmine Emerald Green</h3>
+                <p>
+                    Green tea blended with fresh jasmine blossoms, offering a refreshing and gentle aroma.<br>
+                    <strong>Tasting Notes:</strong> Sweet grass, jasmine, melon.
+                </p>
+                <p><em>Refreshing and uplifting for body and mind.</em></p>
+            </div>
+        </div>
+    </section>
 
-    // Animate products in with Anime.js
-    anime({
-      targets: '.ant-card',
-      translateY: [100, 0],
-      opacity: [0, 1],
-      delay: anime.stagger(200, {start: 1200}),
-      duration: 1200,
-      easing: 'easeOutElastic(1, .8)'
-    });
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <h2>Contact & Wholesale</h2>
+        <p style="text-align:center;max-width:600px;margin:0 auto 2rem auto;">
+            Interested in learning more, stocking Gozal Tea, or hosting an exclusive tasting event? <br>
+            Reach out to our team—we’d love to connect!
+        </p>
+        <form class="contact-form" autocomplete="off" onsubmit="alert('Thank you for contacting us! (Demo Only)'); return false;">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="How can we help you?" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <p style="text-align:center;margin-top:2rem;color:#8a7d61;">
+            Or email us directly: <a href="mailto:info@gozaltea.ae" style="color: var(--primary);font-weight:bold;">info@gozaltea.ae</a>
+        </p>
+    </section>
 
-    // Three.js 3D floating tea leaves
-    let scene = new THREE.Scene();
-    let camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-    let renderer = new THREE.WebGLRenderer({canvas: document.getElementById('three-bg'), alpha: true});
-    renderer.setClearColor(0x000000, 0);
-    renderer.setSize(window.innerWidth, window.innerHeight);
-
-    // Add lights
-    let light = new THREE.PointLight(0xffeeb0, 1.6, 100);
-    light.position.set(0, 10, 10);
-    scene.add(light);
-    scene.add(new THREE.AmbientLight(0xffffff, 0.35));
-
-    // Floating tea leaves (gold glowing spheres as stand-in)
-    let leaves = [];
-    let leafGeometry = new THREE.SphereGeometry(0.22, 16, 16);
-    let leafMaterial = new THREE.MeshStandardMaterial({ color: 0xe3c77b, emissive: 0xf6e9b0, metalness: 0.85, roughness: 0.35 });
-    for(let i=0; i<18; i++) {
-      let mesh = new THREE.Mesh(leafGeometry, leafMaterial);
-      mesh.position.set(
-        (Math.random() - 0.5) * 14,
-        (Math.random() - 0.5) * 7,
-        -5 + Math.random() * 6
-      );
-      scene.add(mesh);
-      leaves.push({mesh, speed: 0.002 + Math.random()*0.002});
-    }
-
-    camera.position.z = 8;
-
-    // Responsive resize
-    window.addEventListener('resize', () => {
-      camera.aspect = window.innerWidth/window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    });
-
-    // Animate loop
-    function animate() {
-      leaves.forEach((leaf, idx) => {
-        leaf.mesh.position.y += Math.sin(Date.now()*leaf.speed + idx) * 0.009;
-        leaf.mesh.position.x += Math.cos(Date.now()*leaf.speed + idx) * 0.004;
-        leaf.mesh.rotation.y += 0.01;
-        leaf.mesh.rotation.z += 0.02;
-      });
-      renderer.render(scene, camera);
-      requestAnimationFrame(animate);
-    }
-    animate();
-
-    // Animate CTA button with Anime.js
-    anime({
-      targets: '.ant-btn',
-      scale: [0.85, 1],
-      opacity: [0, 1],
-      delay: 800,
-      duration: 1000,
-      easing: 'easeOutExpo'
-    });
-  </script>
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">Instagram</a>
+            <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook">Facebook</a>
+            <a href="https://www.twitter.com/" target="_blank" aria-label="Twitter">Twitter</a>
+        </div>
+        <p>&copy; 2024 Gozal Tea. Crafted with luxury in the UAE.</p>
+    </footer>
 </body>
 </html>
